@@ -1,7 +1,8 @@
 library(dplyr)
 
-
 # 1. Merges the training and the test sets to create one data set.
+
+# Load the data files
 df.test <- read.table("./UCI HAR Dataset/test/X_test.txt")
 test.label <- read.table("./UCI HAR Dataset/test/Y_test.txt")
 test.subject <- read.table("./UCI HAR Dataset/test/subject_test.txt")
@@ -11,10 +12,12 @@ train.subject <- read.table("./UCI HAR Dataset/train/subject_train.txt")
 act.names <- read.table("./UCI HAR Dataset/activity_labels.txt")
 features <- read.table("./UCI HAR Dataset/features.txt")
 
+# Combine data
 df.test <- cbind(test.subject, test.label, df.test)
 df.train <- cbind(train.subject, train.label, df.train)
 mydata <- rbind(df.test, df.train)
 
+# Name columns
 names(mydata) <- c("Subject", "Activity", as.character(features$V2))
 rm(list = setdiff(ls(), c("mydata", "act.names", "features")))
 
@@ -33,6 +36,9 @@ mydata$Activity <- act.names$V2[mydata$Activity]
 
 
 # 4. Appropriately labels the data set with descriptive variable names. 
+# It is necessary to remove symbols as "()" and "-" or dplyr would read 
+# them as separators or operators.
+# Names including "BodyBody" are typos of "Body"
 names(mydata) <- gsub("-", "_", names(mydata), perl=TRUE)
 names(mydata) <- gsub("[()]+", "", names(mydata), perl=TRUE)
 names(mydata) <- gsub("BodyBody", "Body", names(mydata), perl=TRUE)
