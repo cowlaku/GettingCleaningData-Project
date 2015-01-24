@@ -2,7 +2,7 @@
 
 The repo is for the project of Coursera course Getting and Cleaning Data.  It contains three files:
 * run_analysis.R: R scripts of the project, 
-* CodeBook.md: codebook of the output data and variables used in run_analysis.R, and 
+* CodeBook.md: codebook of the output data, and 
 * README.md: instruction of the project. 
 
 ## Instruction of the Project 
