@@ -23,3 +23,5 @@ You should create one R script called run_analysis.R that does the following.
 4. Appropriately labels the data set with descriptive variable names.
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
+## Note 
+The data selection process of this script excludes all the variables which are not the measurements on the mean and standard deviation.  meanFreq() or 'Weighted average of the frequency components' is not considered as mean here. 
