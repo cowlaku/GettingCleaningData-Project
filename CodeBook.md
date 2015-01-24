@@ -1,6 +1,15 @@
 # CodeBook
 
-Data dictionary of the project output data, which consists of 68 variables of 180 observations.  Each observation represents a specific activity performed by one subject.  The data stores the mean value of 
+Data dictionary of the project output data, which consists of 68 variables of 180 observations.  Each observation represents a specific activity performed by one subject.  Except the first two, all the rest variable namses are the combinations of abbreviated codes to indicate the measurment.  The names consists of 5 parts: "\<signal domain\>\<acceleration type\>\<meter type\>\_\<measurement type\>\<signal information\>\_\<measurement axis\>."
+* \<signal domain\>: t - time; f - frequency
+* \<acceleration type\>: Body - body acceleration; Gravity - gravity acceleration
+* \<meter type\>: Acc - accelerometer; Gyro: gyroscope
+* \<measurement type\>: mean - mean value; std: standard deviation
+* \<measurement dirction\>: 3 dimensional axis X,Y,Z
+* \<signal information\>: Jerk: jerk signal; Mag - signal magnitude
+
+For example, the "tBodyGyroJerkMag_mean" indicates "the avarage magnitude of the jerk signal of body acceleration time measured by gyroscope."
+Note all these variables are the **mean value** of multiple observations of the activity performed by the same subject.
 
 1. Activity: Type of activity performed 
   * WALKING
@@ -10,9 +19,7 @@ Data dictionary of the project output data, which consists of 68 variables of 18
   * STANDING
   * LAYING
 2. Subject: Subject of the observation
-
-Note all the rest variables are the **mean value** of the 
-
+  * Number, 1 to 30
 3. tBodyAcc_mean_X
 4. tBodyAcc_mean_Y
 5. tBodyAcc_mean_Z
